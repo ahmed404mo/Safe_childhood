@@ -3,486 +3,804 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع أمان الأطفال - التوعية من التحرش</title>
-    <link rel="stylesheet" href="style.css">
+    <title>حماية الأطفال - مساحة آمنة للأطفال والعائلات</title>
+    <meta name="description" content="منصة شاملة لحماية الأطفال تقدم محتوى تعليمي آمن، مساعد ذكي، وأدوات حماية متقدمة للأطفال والعائلات">
+    <meta name="keywords" content="حماية الأطفال، أمان الأطفال، التنمر، الأمان الرقمي، تعليم الأطفال، مساعد ذكي">
+    <meta name="author" content="فريق حماية الأطفال">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="حماية الأطفال - مساحة آمنة للأطفال والعائلات">
+    <meta property="og:description" content="منصة شاملة لحماية الأطفال تقدم محتوى تعليمي آمن ومساعد ذكي">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_EG">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <!-- <a href="#main-content" class="skip-link">انتقل إلى المحتوى الرئيسي</a> -->
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen" role="dialog" aria-label="جاري التحميل">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2 class="loading-text">طفولة بأمان</h2>
+            <div class="loading-spinner" role="progressbar" aria-label="جاري التحميل"></div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <div class="logo-section">
+                <!-- Logo -->
+                <div class="logo-section" itemscope itemtype="https://schema.org/Organization">
                     <div class="logo-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="logo-text">
-                        <h1>طفولة بأمان</h1>
-                        <p>تعلم كيف تحمي نفسك</p>
+                        <h1 itemprop="name">طفولة بأمان</h1>
+                        <p itemprop="description">مساحة آمنة لطفلك</p>
                     </div>
                 </div>
-                
-                <nav class="nav" id="mainNav">
-                    <button class="mobile-close-btn" id="mobileCloseBtn">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <button class="nav-btn active" data-section="home">
-                        <span>الرئيسية</span>
-                        <i class="fas fa-home"></i>
-                    </button>
-                    <button class="nav-btn" data-section="games">
-                        <span>الألعاب</span>
-                        <i class="fas fa-gamepad"></i>
-                    </button>
-                    <button class="nav-btn" data-section="videos">
-                        <span>الفيديوهات</span>
-                        <i class="fas fa-video"></i>
-                    </button>
-                    <button class="nav-btn" data-section="contact">
-                        <span>اتصل بنا</span>
-                        <i class="fas fa-envelope"></i>
-                    </button>
-                    <!-- زر الألوان الجديد في القائمة -->
-                    <button class="nav-color-btn" id="mobileColorBtn">
-                        <span> تغيير الألوان   </span>
-                        <i class="fas fa-palette"></i>
-                    </button>
+
+                <!-- Navigation -->
+                <nav class="nav" id="mainNav" role="navigation" aria-label="القائمة الرئيسية">
+                    <div class="nav-overlay" id="navOverlay"></div>
+                    <div class="nav-content">
+                        <div class="nav-header">
+                            <div class="nav-logo">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>طفولة بأمان</span>
+                            </div>
+                            <button class="nav-close" id="navClose" aria-label="إغلاق القائمة">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="nav-links">
+                            <button class="nav-btn active" data-section="home" aria-current="page">
+                                <i class="fas fa-home"></i>
+                                <span>الرئيسية</span>
+                            </button>
+                            <button class="nav-btn" data-section="library">
+                                <i class="fas fa-book"></i>
+                                <span>المكتبة</span>
+                            </button>
+                            <button class="nav-btn" data-section="stories">
+                                <i class="fas fa-heart"></i>
+                                <span>القصص</span>
+                            </button>
+                            <button class="nav-btn" data-section="games">
+                                <i class="fas fa-gamepad"></i>
+                                <span>الألعاب</span>
+                            </button>
+                            <button class="nav-btn" data-section="videos">
+                                <i class="fas fa-video"></i>
+                                <span>الفيديوهات</span>
+                            </button>
+                            <button class="nav-btn" data-section="contact">
+                                <i class="fas fa-phone"></i>
+                                <span>تواصل معنا</span>
+                            </button>
+                        </div>
+                        <div class="nav-footer">
+                            <button class="ai-assistant-btn mobile-ai-btn" id="mobileAiBtn">
+                                <i class="fas fa-robot"></i>
+                                <span>المساعد الذكي</span>
+                            </button>
+                        </div>
+                    </div>
                 </nav>
 
-                <button class="mobile-menu-btn" id="mobileMenuBtn" title="فتح القائمة">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-
-                <button class="settings-btn" id="settingsBtn">
-                    <i class="fas fa-palette"></i>
-                </button>
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <button class="ai-assistant-btn desktop-ai-btn" id="aiAssistantBtn" aria-label="فتح المساعد الذكي">
+                        <i class="fas fa-robot"></i>
+                        <span>المساعد الذكي</span>
+                    </button>
+                    <button class="theme-toggle-btn" id="themeToggle" aria-label="تغيير الألوان">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="main">
+    <main class="main" id="main-content" role="main">
         <!-- Home Section -->
-        <section id="home" class="section active">
+        <section id="home" class="section active" role="region" aria-labelledby="home-title">
             <!-- Hero Section -->
             <div class="hero">
                 <div class="container">
                     <div class="hero-content">
-                        <div class="hero-icon">
-                            <i class="fas fa-shield-alt"></i>
+                        <div class="hero-text">
+                            <h1 id="home-title" class="hero-title">
+                                مرحباً بكم في 
+                                <span class="title-highlight">طفولة بأمان</span>
+                            </h1>
+                            <p class="hero-description">
+                                مساحة آمنة ومحمية للأطفال والعائلات. نوفر محتوى تعليمي وترفيهي آمن مع أدوات حماية متقدمة ومساعد ذكي لضمان تجربة آمنة ومفيدة.
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary" data-section="library" aria-label="انتقل إلى المكتبة">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>ابدأ الاستكشاف</span>
+                                </button>
+                                <button class="btn btn-outline" id="heroAiBtn" aria-label="فتح المساعد الذكي">
+                                    <i class="fas fa-robot"></i>
+                                    <span>المساعد الذكي</span>
+                                </button>
+                            </div>
                         </div>
-                        <h1 class="hero-title">مرحباً بك في عالم الأمان</h1>
-                        <p class="hero-description">
-                            تعلم كيف تحمي نفسك وتبقى آمناً من خلال الألعاب والفيديوهات التعليمية الممتعة
-                        </p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary" data-section="games">
-                                <i class="fas fa-gamepad"></i>
-                                ابدأ اللعب الآن
-                            </button>
-                            <button class="btn btn-secondary" data-section="videos">
-                                <i class="fas fa-video"></i>
-                                شاهد الفيديوهات
-                            </button>
+                        <div class="hero-visual">
+                            <div class="hero-cards">
+                                <div class="hero-card card-1" role="img" aria-label="رمز الحماية">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>حماية</span>
+                                </div>
+                                <div class="hero-card card-2" role="img" aria-label="رمز التعلم">
+                                    <i class="fas fa-book"></i>
+                                    <span>تعلم</span>
+                                </div>
+                                <div class="hero-card card-3" role="img" aria-label="رمز الأمان">
+                                    <i class="fas fa-heart"></i>
+                                    <span>أمان</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Features Section -->
-            <div class="features">
+            <div class="features-section" aria-labelledby="features-title">
                 <div class="container">
-                    <h2 class="section-title">ماذا ستتعلم؟</h2>
+                    <div class="section-header">
+                        <h2 id="features-title" class="section-title">ميزات المنصة</h2>
+                        <p class="section-subtitle">اكتشف كل ما نقدمه لضمان تجربة آمنة ومفيدة لأطفالك</p>
+                    </div>
                     <div class="features-grid">
-                        <div class="feature-card" data-section="games">
-                            <div class="feature-icon blue">
+                        <article class="feature-card" data-section="library" tabindex="0" role="button" aria-label="انتقل إلى مكتبة المحتوى">
+                            <div class="feature-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>مكتبة المحتوى</h3>
+                            <p>مجموعة واسعة من المحتوى التعليمي والترفيهي المناسب للأطفال من جميع الأعمار</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                        </article>
+                        <article class="feature-card" data-section="stories" tabindex="0" role="button" aria-label="انتقل إلى القصص التفاعلية">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>قصص تفاعلية</h3>
+                            <p>قصص مصورة وتفاعلية تعلم القيم الإيجابية والسلوكيات الآمنة</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                        </article>
+                        <article class="feature-card" data-section="games" tabindex="0" role="button" aria-label="انتقل إلى الألعاب التعليمية">
+                            <div class="feature-icon">
                                 <i class="fas fa-gamepad"></i>
                             </div>
                             <h3>ألعاب تعليمية</h3>
-                            <p>تعلم من خلال الألعاب الممتعة والآمنة</p>
-                        </div>
-                        
-                        <div class="feature-card" data-section="videos">
-                            <div class="feature-icon green">
+                            <p>ألعاب ممتعة وآمنة تساعد على التعلم وتطوير المهارات</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                        </article>
+                        <article class="feature-card" data-section="videos" tabindex="0" role="button" aria-label="انتقل إلى الفيديوهات التعليمية">
+                            <div class="feature-icon">
                                 <i class="fas fa-video"></i>
                             </div>
                             <h3>فيديوهات تعليمية</h3>
-                            <p>شاهد قصص ونصائح مهمة للأمان</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon purple">
-                                <i class="fas fa-shield-alt"></i>
+                            <p>محتوى مرئي تعليمي وترفيهي مناسب وآمن للأطفال</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
                             </div>
-                            <h3>نصائح الأمان</h3>
-                            <p>تعلم كيف تحافظ على نفسك</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon pink">
-                                <i class="fas fa-heart"></i>
+                        </article>
+                        <article class="feature-card ai-feature" id="aiFeatureCard" tabindex="0" role="button" aria-label="فتح المساعد الذكي">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
                             </div>
-                            <h3>الثقة والحب</h3>
-                            <p>أنت مهم ومحبوب دائماً</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Safety Tips Section -->
-            <div class="safety-tips">
-                <div class="container">
-                    <h2 class="section-title">نصائح مهمة للأمان</h2>
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <div class="tip-icon">
-                                <i class="fas fa-user-shield"></i>
+                            <h3>المساعد الذكي</h3>
+                            <p>مساعد ذكي متاح 24/7 للإجابة على الأسئلة وتقديم المساعدة</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
                             </div>
-                            <p>جسدك ملكك ولك الحق في قول "لا"</p>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <div class="tip-icon">
-                                <i class="fas fa-comments"></i>
+                        </article>
+                        <article class="feature-card" data-section="contact" tabindex="0" role="button" aria-label="انتقل إلى صفحة التواصل">
+                            <div class="feature-icon">
+                                <i class="fas fa-phone"></i>
                             </div>
-                            <p>تحدث مع شخص تثق به إذا شعرت بعدم الراحة</p>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <div class="tip-icon">
-                                <i class="fas fa-key"></i>
+                            <h3>دعم مستمر</h3>
+                            <p>فريق دعم متخصص متاح للمساعدة في أي وقت</p>
+                            <div class="feature-arrow">
+                                <i class="fas fa-arrow-left"></i>
                             </div>
-                            <p>الأسرار الجيدة تجعلك سعيداً، والأسرار السيئة تجعلك حزيناً</p>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <div class="tip-icon">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
-                            <p>لا تتردد في طلب المساعدة من الكبار الذين تثق بهم</p>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Games Section -->
-        <section id="games" class="section">
+        <!-- Content Library Section -->
+        <section id="library" class="section" role="region" aria-labelledby="library-title">
             <div class="container">
                 <div class="section-header">
-                    <h1 class="section-title">الألعاب التعليمية</h1>
-                    <p class="section-description">العب وتعلم في نفس الوقت</p>
+                    <h2 id="library-title" class="section-title">مكتبة المحتوى</h2>
+                    <p class="section-subtitle">اختر من مجموعة متنوعة من المحتوى التعليمي والترفيهي</p>
                 </div>
                 
-                <div class="games-grid">
-                    <div class="game-card main-game">
-                        <div class="game-icon">
-                            <i class="fas fa-star"></i>
+                <div class="category-tabs" role="tablist" aria-label="تصنيفات المحتوى">
+                    <button class="category-tab active" data-category="all" role="tab" aria-selected="true">الكل</button>
+                    <button class="category-tab" data-category="stories" role="tab" aria-selected="false">القصص</button>
+                    <button class="category-tab" data-category="games" role="tab" aria-selected="false">الألعاب</button>
+                    <button class="category-tab" data-category="videos" role="tab" aria-selected="false">الفيديوهات</button>
+                </div>
+
+                <div class="content-grid" role="tabpanel">
+                    <article class="content-item" data-category="stories" tabindex="0" role="button">
+                        <div class="content-image">
+                            <i class="fas fa-book-heart"></i>
                         </div>
-                        <h3>اللعبة الرئيسية</h3>
-                        <p>هنا يمكنك إضافة لعبتك المخصصة</p>
-                        <button class="btn btn-primary" id="startGameBtn">ابدأ اللعب</button>
-                    </div>
-                    
-                    <div class="game-card">
-                        <div class="game-icon">
+                        <h3>قصة الأمان الرقمي</h3>
+                        <p>تعلم كيفية استخدام الإنترنت بأمان</p>
+                        <div class="content-badge">قصة</div>
+                    </article>
+                    <article class="content-item" data-category="games" tabindex="0" role="button">
+                        <div class="content-image">
                             <i class="fas fa-puzzle-piece"></i>
                         </div>
-                        <h3>لعبة الأمان</h3>
-                        <p>تعلم قواعد الأمان من خلال الألغاز</p>
-                        <button class="btn btn-secondary">قريباً</button>
-                    </div>
-                    
-                    <div class="game-card">
-                        <div class="game-icon">
-                            <i class="fas fa-question-circle"></i>
+                        <h3>لعبة الألوان</h3>
+                        <p>لعبة تعليمية لتعلم الألوان والأشكال</p>
+                        <div class="content-badge">لعبة</div>
+                    </article>
+                    <article class="content-item" data-category="videos" tabindex="0" role="button">
+                        <div class="content-image">
+                            <i class="fas fa-play-circle"></i>
                         </div>
-                        <h3>أسئلة وأجوبة</h3>
-                        <p>اختبر معلوماتك حول الأمان</p>
-                        <button class="btn btn-secondary">قريباً</button>
-                    </div>
+                        <h3>فيديو الأرقام</h3>
+                        <p>تعلم الأرقام بطريقة ممتعة</p>
+                        <div class="content-badge">فيديو</div>
+                    </article>
+                    <article class="content-item" data-category="stories" tabindex="0" role="button">
+                        <div class="content-image">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>قصة النجوم</h3>
+                        <p>رحلة مثيرة إلى عالم النجوم</p>
+                        <div class="content-badge">قصة</div>
+                    </article>
+                    <article class="content-item" data-category="games" tabindex="0" role="button">
+                        <div class="content-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>لعبة الذاكرة</h3>
+                        <p>تحدي الذاكرة والتركيز</p>
+                        <div class="content-badge">لعبة</div>
+                    </article>
+                    <article class="content-item" data-category="videos" tabindex="0" role="button">
+                        <div class="content-image">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>أغاني تعليمية</h3>
+                        <p>تعلم من خلال الأغاني الممتعة</p>
+                        <div class="content-badge">فيديو</div>
+                    </article>
                 </div>
-                
-                <div class="game-container" id="gameContainer">
-                    <div class="game-placeholder">
-                        <p>هنا سيتم عرض اللعبة</p>
-                        <p>يمكنك إضافة كود لعبتك هنا</p>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section id="stories" class="section" role="region" aria-labelledby="stories-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="stories-title" class="section-title">القصص التفاعلية</h2>
+                    <p class="section-subtitle">قصص ممتعة تعلم القيم والسلوكيات الإيجابية</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>قصة الأمان الرقمي</h3>
+                            <p>تعلم سارة كيفية استخدام الإنترنت بأمان وحماية معلوماتها الشخصية من خلال مغامرة شيقة</p>
+                            <div class="story-meta">
+                                <span class="story-duration"><i class="fas fa-clock"></i> 5 دقائق</span>
+                                <span class="story-age"><i class="fas fa-child"></i> 6-12 سنة</span>
+                            </div>
+                            <button class="btn btn-primary story-btn" aria-label="اقرأ قصة الأمان الرقمي">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ القصة
+                            </button>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>قصة الصداقة الحقيقية</h3>
+                            <p>يارا تتعلم معنى الصداقة الحقيقية وكيفية اختيار الأصدقاء الجيدين في رحلة مليئة بالدروس</p>
+                            <div class="story-meta">
+                                <span class="story-duration"><i class="fas fa-clock"></i> 7 دقائق</span>
+                                <span class="story-age"><i class="fas fa-child"></i> 8-14 سنة</span>
+                            </div>
+                            <button class="btn btn-primary story-btn" aria-label="اقرأ قصة الصداقة الحقيقية">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ القصة
+                            </button>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>قصة الطيبة والعطاء</h3>
+                            <p>فاطمة تكتشف سعادة العطاء ومساعدة الآخرين في قصة تلهم الأطفال لفعل الخير</p>
+                            <div class="story-meta">
+                                <span class="story-duration"><i class="fas fa-clock"></i> 6 دقائق</span>
+                                <span class="story-age"><i class="fas fa-child"></i> 5-10 سنوات</span>
+                            </div>
+                            <button class="btn btn-primary story-btn" aria-label="اقرأ قصة الطيبة والعطاء">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ القصة
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="section" role="region" aria-labelledby="games-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="games-title" class="section-title">الألعاب التعليمية</h2>
+                    <p class="section-subtitle">ألعاب ممتعة وآمنة لتطوير المهارات</p>
+                </div>
+                <div class="games-grid">
+                    <article class="game-card">
+                        <div class="game-image">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="game-content">
+                            <h3>لعبة الألوان</h3>
+                            <p>تعلم الألوان والأشكال بطريقة تفاعلية ممتعة مع تحديات متدرجة</p>
+                            <div class="game-meta">
+                                <span class="game-level"><i class="fas fa-star"></i> سهل</span>
+                                <span class="game-age"><i class="fas fa-child"></i> 3-8 سنوات</span>
+                            </div>
+                            <button class="btn btn-primary game-btn" id="startMainGame" aria-label="ابدأ لعبة الألوان">
+                                <i class="fas fa-play"></i>
+                                العب الآن
+                            </button>
+                        </div>
+                    </article>
+                    <article class="game-card">
+                        <div class="game-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="game-content">
+                            <h3>لعبة الذاكرة</h3>
+                            <p>تحدي الذاكرة وتطوير التركيز من خلال ألعاب تذكر الأنماط والصور</p>
+                            <div class="game-meta">
+                                <span class="game-level"><i class="fas fa-star"></i> متوسط</span>
+                                <span class="game-age"><i class="fas fa-child"></i> 6-12 سنة</span>
+                            </div>
+                            <button class="btn btn-primary game-btn" aria-label="ابدأ لعبة الذاكرة">
+                                <i class="fas fa-play"></i>
+                                العب الآن
+                            </button>
+                        </div>
+                    </article>
+                    <article class="game-card">
+                        <div class="game-image">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="game-content">
+                            <h3>لعبة الأرقام</h3>
+                            <p>تعلم الأرقام والعمليات الحسابية البسيطة بطريقة مرحة وتفاعلية</p>
+                            <div class="game-meta">
+                                <span class="game-level"><i class="fas fa-star"></i> متوسط</span>
+                                <span class="game-age"><i class="fas fa-child"></i> 5-10 سنوات</span>
+                            </div>
+                            <button class="btn btn-primary game-btn" aria-label="ابدأ لعبة الأرقام">
+                                <i class="fas fa-play"></i>
+                                العب الآن
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Game Container -->
+                <div id="gameContainer" class="game-container" role="application" aria-label="لعبة الألوان التفاعلية">
+                    <div class="game-header">
+                        <h3><i class="fas fa-gamepad"></i> لعبة الألوان</h3>
+                        <div class="game-score">
+                            <span>النقاط: <strong id="gameScore">0</strong></span>
+                        </div>
+                        <button class="game-close" id="closeGame" aria-label="إغلاق اللعبة">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-instruction">
+                            <p id="game-instruction">اختر اللون المطلوب!</p>
+                            <div class="game-timer">
+                                <i class="fas fa-clock"></i>
+                                <span id="gameTimer">30</span>
+                            </div>
+                        </div>
+                        <div class="color-buttons" role="group" aria-labelledby="game-instruction">
+                            <button class="color-btn red" data-color="أحمر" aria-label="اللون الأحمر">
+                                <span>أحمر</span>
+                            </button>
+                            <button class="color-btn blue" data-color="أزرق" aria-label="اللون الأزرق">
+                                <span>أزرق</span>
+                            </button>
+                            <button class="color-btn green" data-color="أخضر" aria-label="اللون الأخضر">
+                                <span>أخضر</span>
+                            </button>
+                            <button class="color-btn yellow" data-color="أصفر" aria-label="اللون الأصفر">
+                                <span>أصفر</span>
+                            </button>
+                        </div>
+                        <div class="game-feedback" id="gameFeedback" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Videos Section -->
-        <section id="videos" class="section">
+        <section id="videos" class="section" role="region" aria-labelledby="videos-title">
             <div class="container">
                 <div class="section-header">
-                    <h1 class="section-title">الفيديوهات التعليمية</h1>
-                    <p class="section-description">شاهد وتعلم من القصص المفيدة</p>
+                    <h2 id="videos-title" class="section-title">الفيديوهات التعليمية</h2>
+                    <p class="section-subtitle">محتوى مرئي تعليمي وترفيهي آمن</p>
                 </div>
-                
                 <div class="videos-grid">
-                    <div class="video-card">
+                    <article class="video-card">
                         <div class="video-thumbnail">
                             <i class="fas fa-play-circle"></i>
-                            <div class="video-overlay">
-                                <button class="play-btn">تشغيل</button>
+                            <div class="video-duration">5:30</div>
+                        </div>
+                        <div class="video-content">
+                            <h3>تعلم الأرقام</h3>
+                            <p>فيديو تعليمي تفاعلي لتعلم الأرقام من 1 إلى 10 مع أغاني ممتعة</p>
+                            <div class="video-meta">
+                                <span class="video-views"><i class="fas fa-eye"></i> 1.2k مشاهدة</span>
+                                <span class="video-age"><i class="fas fa-child"></i> 3-7 سنوات</span>
                             </div>
+                            <button class="btn btn-primary video-btn" aria-label="شاهد فيديو تعلم الأرقام">
+                                <i class="fas fa-play"></i>
+                                شاهد الآن
+                            </button>
                         </div>
-                        <div class="video-info">
-                            <h3>فيديو الأمان الأول</h3>
-                            <p>تعلم كيف تحمي نفسك</p>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
+                    </article>
+                    <article class="video-card">
                         <div class="video-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <div class="video-overlay">
-                                <button class="play-btn">تشغيل</button>
+                            <i class="fas fa-music"></i>
+                            <div class="video-duration">8:15</div>
+                        </div>
+                        <div class="video-content">
+                            <h3>أغاني الحروف</h3>
+                            <p>تعلم الحروف العربية من خلال الأغاني الممتعة والقوافي المرحة</p>
+                            <div class="video-meta">
+                                <span class="video-views"><i class="fas fa-eye"></i> 2.5k مشاهدة</span>
+                                <span class="video-age"><i class="fas fa-child"></i> 4-8 سنوات</span>
                             </div>
+                            <button class="btn btn-primary video-btn" aria-label="شاهد فيديو أغاني الحروف">
+                                <i class="fas fa-play"></i>
+                                شاهد الآن
+                            </button>
                         </div>
-                        <div class="video-info">
-                            <h3>قصة الحدود الآمنة</h3>
-                            <p>قصة تعليمية مهمة</p>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
+                    </article>
+                    <article class="video-card">
                         <div class="video-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <div class="video-overlay">
-                                <button class="play-btn">تشغيل</button>
+                            <i class="fas fa-globe"></i>
+                            <div class="video-duration">12:45</div>
+                        </div>
+                        <div class="video-content">
+                            <h3>رحلة حول العالم</h3>
+                            <p>اكتشف بلدان وثقافات مختلفة في رحلة تعليمية شيقة حول العالم</p>
+                            <div class="video-meta">
+                                <span class="video-views"><i class="fas fa-eye"></i> 3.1k مشاهدة</span>
+                                <span class="video-age"><i class="fas fa-child"></i> 8-14 سنة</span>
                             </div>
+                            <button class="btn btn-primary video-btn" aria-label="شاهد فيديو رحلة حول العالم">
+                                <i class="fas fa-play"></i>
+                                شاهد الآن
+                            </button>
                         </div>
-                        <div class="video-info">
-                            <h3>كيف تطلب المساعدة</h3>
-                            <p>خطوات مهمة يجب معرفتها</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="video-player" id="videoPlayer">
-                    <div class="video-placeholder">
-                        <p>هنا سيتم عرض الفيديو</p>
-                        <p>يمكنك إضافة روابط الفيديوهات هنا</p>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section">
+        <section id="contact" class="section" role="region" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section-header">
-                    <h1 class="section-title">اتصل بنا</h1>
-                    <p class="section-description">نحن هنا لمساعدتك دائماً</p>
+                    <h2 id="contact-title" class="section-title">تواصل معنا</h2>
+                    <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
                 </div>
-                
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h3>خط المساعدة</h3>
-                            <p>متاح 24/7 لمساعدتك</p>
-                            <a href="tel:16000" class="contact-link">16000</a>
+                <div class="contact-grid">
+                    <article class="contact-card emergency">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
+                        <div class="contact-content">
+                            <h3>خط نجدة الطفل</h3>
+                            <p class="contact-number"><a href="tel:16000" aria-label="اتصل بخط نجدة الطفل">16000</a></p>
+                            <p class="contact-desc">متاح 24/7 لتقديم المساعدة الفورية</p>
+                            <div class="contact-features">
+                                <span><i class="fas fa-clock"></i> متاح دائماً</span>
+                                <span><i class="fas fa-shield-alt"></i> سري وآمن</span>
                             </div>
+                        </div>
+                    </article>
+                    <article class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
                             <h3>البريد الإلكتروني</h3>
-                            <p>راسلنا في أي وقت</p>
-                            <a href="mailto:help@childsafety.com" class="contact-link">help@childsafety.com</a>
-                        </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                            <p class="contact-number"><a href="mailto:help@childsafety.com" aria-label="أرسل بريد إلكتروني">help@childsafety.com</a></p>
+                            <p class="contact-desc">للاستفسارات والدعم التقني</p>
+                            <div class="contact-features">
+                                <span><i class="fas fa-reply"></i> رد سريع</span>
+                                <span><i class="fas fa-user-shield"></i> دعم متخصص</span>
                             </div>
-                            <h3>العنوان</h3>
-                            <p>مركز أمان الأطفال</p>
-                            <span class="contact-link">القاهرة، مصر</span>
                         </div>
-                    </div>
-                    
-                    <div class="emergency-section">
-                        <div class="emergency-card">
-                            <div class="emergency-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
+                    </article>
+                    <article class="contact-card emergency">
+                        <div class="contact-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>حالات الطوارئ</h3>
+                            <p class="contact-number"><a href="tel:122" aria-label="اتصل بالطوارئ">122</a></p>
+                            <p class="contact-desc">للحالات العاجلة والطوارئ</p>
+                            <div class="contact-features">
+                                <span><i class="fas fa-ambulance"></i> استجابة فورية</span>
+                                <span><i class="fas fa-map-marker-alt"></i> في جميع المحافظات</span>
                             </div>
-                            <h3>في حالة الطوارئ</h3>
-                            <p>إذا كنت في خطر فوري، اتصل بالرقم:</p>
-                            <a href="tel:122" class="emergency-btn">122</a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
+                <!-- Footer Logo -->
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <div class="footer-logo-icon">
+                        <div class="logo-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="footer-logo-text">
-                            <h3>أمان الأطفال</h3>
-                            <p>حماية وتوعية</p>
+                        <div class="logo-text" itemscope itemtype="https://schema.org/Organization">
+                            <h3 itemprop="name">حماية الأطفال</h3>
+                            <p itemprop="description">مساحة آمنة للجميع</p>
                         </div>
                     </div>
                     <p class="footer-description">
-                        نحن ملتزمون بحماية الأطفال وتوعيتهم من خلال التعليم التفاعلي والموارد الآمنة.
+                        نحن ملتزمون بتوفير بيئة آمنة ومحمية للأطفال والعائلات مع محتوى تعليمي وترفيهي عالي الجودة.
                     </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
+                    <div class="social-links" role="list" aria-label="روابط التواصل الاجتماعي">
+                        <a href="https://facebook.com/childsafety" class="social-link" aria-label="تابعنا على فيسبوك" role="listitem">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://twitter.com/childsafety" class="social-link" aria-label="تابعنا على تويتر" role="listitem">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://instagram.com/childsafety" class="social-link" aria-label="تابعنا على إنستغرام" role="listitem">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://youtube.com/childsafety" class="social-link" aria-label="تابعنا على يوتيوب" role="listitem">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
-                
+
+                <!-- Quick Links -->
                 <div class="footer-section">
-                    <h4>روابط مهمة</h4>
+                    <h4>روابط سريعة</h4>
+                    <nav aria-label="روابط سريعة">
+                        <ul class="footer-links">
+                            <li><a href="#" data-section="home">الرئيسية</a></li>
+                            <li><a href="#" data-section="library">المكتبة</a></li>
+                            <li><a href="#" data-section="stories">القصص</a></li>
+                            <li><a href="#" data-section="games">الألعاب</a></li>
+                            <li><a href="#" data-section="videos">الفيديوهات</a></li>
+                            <li><a href="#" data-section="contact">تواصل معنا</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h4>خدماتنا</h4>
                     <ul class="footer-links">
-                        <li><a href="#" data-section="home">الرئيسية</a></li>
-                        <li><a href="#" data-section="games">الألعاب</a></li>
-                        <li><a href="#" data-section="videos">الفيديوهات</a></li>
-                        <li><a href="#" data-section="contact">اتصل بنا</a></li>
+                        <li><a href="#">الاستشارات النفسية</a></li>
+                        <li><a href="#">برامج التوعية</a></li>
+                        <li><a href="#">التدريب للأهالي</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                        <li><a href="#">المساعد الذكي</a></li>
                     </ul>
                 </div>
-                
+
+                <!-- Contact Info -->
                 <div class="footer-section">
-                    <h4>الموارد</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">دليل الأمان</a></li>
-                        <li><a href="#">نصائح للوالدين</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
-                        <li><a href="#">المساعدة</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>خطوط المساعدة</h4>
-                    <div class="helpline-info">
-                        <div class="helpline-item">
+                    <h4>معلومات التواصل</h4>
+                    <address class="contact-info">
+                        <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <span>خط نجدة الطفل</span>
-                                <strong>16000</strong>
+                                <strong itemprop="name">خط نجدة الطفل</strong>
+                                <span itemprop="telephone">16000</span>
                             </div>
                         </div>
-                        <div class="helpline-item">
-                            <i class="fas fa-shield-alt"></i>
+                        <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
+                            <i class="fas fa-envelope"></i>
                             <div>
-                                <span>الطوارئ</span>
-                                <strong>122</strong>
+                                <strong itemprop="name">البريد الإلكتروني</strong>
+                                <span itemprop="email">help@childsafety.com</span>
                             </div>
                         </div>
-                    </div>
+                        <div class="contact-item" itemscope itemtype="https://schema.org/PostalAddress">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong itemprop="name">العنوان</strong>
+                                <span itemprop="addressLocality">القاهرة، مصر</span>
+                            </div>
+                        </div>
+                        <div class="contact-item emergency" itemscope itemtype="https://schema.org/ContactPoint">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong itemprop="name">حالات الطوارئ</strong>
+                                <span itemprop="telephone">122</span>
+                            </div>
+                        </div>
+                    </address>
                 </div>
             </div>
-            
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2024 أمان الأطفال. جميع الحقوق محفوظة.</p>
-                    <div class="footer-bottom-links">
+                    <p>&copy; 2024 حماية الأطفال. جميع الحقوق محفوظة.</p>
+                    <nav class="footer-bottom-links" aria-label="روابط قانونية">
                         <a href="#">سياسة الخصوصية</a>
                         <a href="#">شروط الاستخدام</a>
-                        <a href="#">اتفاقية الاستخدام</a>
-                    </div>
+                        <a href="#">اتفاقية الخدمة</a>
+                    </nav>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Color Customizer Modal -->
-    <div class="modal" id="colorModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>
-                    <i class="fas fa-palette"></i>
-                    تخصيص الألوان
-                </h3>
-                <button class="close-btn" id="closeModal">
+    <!-- AI Assistant Modal -->
+    <div id="aiModal" class="ai-modal" role="dialog" aria-labelledby="ai-title" aria-modal="true">
+        <div class="ai-container">
+            <div class="ai-header">
+                <div class="ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-info">
+                    <h3 id="ai-title">المساعد الذكي</h3>
+                    <div class="ai-status" id="aiStatus" aria-live="polite">متصل</div>
+                </div>
+                <button class="ai-close" id="aiClose" aria-label="إغلاق المساعد الذكي">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
-            <div class="color-themes">
-                <div class="theme-option" data-theme="blue">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #3B82F6;"></span>
-                        <span class="color-dot" style="background: #10B981;"></span>
-                        <span class="color-dot" style="background: #F59E0B;"></span>
+            <div class="ai-messages" id="aiMessages" role="log" aria-live="polite" aria-label="محادثة المساعد الذكي">
+                <div class="ai-message assistant">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <span class="theme-name">الأزرق الكلاسيكي</span>
+                    <div class="message-content">
+                        <p>مرحباً! 👋 أنا المساعد الذكي لحماية الأطفال.</p>
+                        <p>كيف يمكنني مساعدتك اليوم؟</p>
+                        <div class="message-time">الآن</div>
+                    </div>
                 </div>
                 
-                <div class="theme-option" data-theme="green">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #059669;"></span>
-                        <span class="color-dot" style="background: #8B5CF6;"></span>
-                        <span class="color-dot" style="background: #F97316;"></span>
-                    </div>
-                    <span class="theme-name">الأخضر الطبيعي</span>
+                <div class="ai-suggestions" role="group" aria-label="اقتراحات سريعة">
+                    <button class="suggestion-btn" data-message="كيف أحمي طفلي من الإنترنت؟">
+                        كيف أحمي طفلي من الإنترنت؟
+                    </button>
+                    <button class="suggestion-btn" data-message="ما هي علامات التنمر؟">
+                        ما هي علامات التنمر؟
+                    </button>
+                    <button class="suggestion-btn" data-message="كيف أتحدث مع طفلي عن الأمان؟">
+                        كيف أتحدث مع طفلي عن الأمان؟
+                    </button>
+                    <button class="suggestion-btn" data-message="ماذا أفعل في حالة الطوارئ؟">
+                        ماذا أفعل في حالة الطوارئ؟
+                    </button>
                 </div>
-                
-                <div class="theme-option" data-theme="purple">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #7C3AED;"></span>
-                        <span class="color-dot" style="background: #06B6D4;"></span>
-                        <span class="color-dot" style="background: #EF4444;"></span>
-                    </div>
-                    <span class="theme-name">البنفسجي المرح</span>
+            </div>
+            
+            <div id="aiTyping" class="ai-typing" aria-live="polite" aria-label="المساعد يكتب">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                
-                <div class="theme-option" data-theme="pink">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #EC4899;"></span>
-                        <span class="color-dot" style="background: #84CC16;"></span>
-                        <span class="color-dot" style="background: #F59E0B;"></span>
-                    </div>
-                    <span class="theme-name">الوردي الناعم</span>
-                </div>
-                
-                <div class="theme-option" data-theme="orange">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #EA580C;"></span>
-                        <span class="color-dot" style="background: #0EA5E9;"></span>
-                        <span class="color-dot" style="background: #22C55E;"></span>
-                    </div>
-                    <span class="theme-name">البرتقالي المشرق</span>
-                </div>
-                
-                <div class="theme-option" data-theme="dark">
-                    <div class="theme-colors">
-                        <span class="color-dot" style="background: #6366F1;"></span>
-                        <span class="color-dot" style="background: #1f2937;"></span>
-                        <span class="color-dot" style="background: #F59E0B;"></span>
-                    </div>
-                    <span class="theme-name">الوضع المظلم</span>
-                </div>
+            </div>
+            
+            <div class="ai-input-container">
+                <label for="aiInput" class="sr-only">اكتب رسالتك للمساعد الذكي</label>
+                <textarea id="aiInput" class="ai-input" placeholder="اكتب رسالتك هنا..." rows="1" aria-label="رسالة للمساعد الذكي"></textarea>
+                <button id="aiSend" class="ai-send" aria-label="إرسال الرسالة">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
             </div>
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- Theme Modal -->
+    <div id="themeModal" class="theme-modal" role="dialog" aria-labelledby="theme-title" aria-modal="true">
+        <div class="theme-container">
+            <div class="theme-header">
+                <h3 id="theme-title">اختر اللون المفضل</h3>
+                <button class="theme-close" id="themeClose" aria-label="إغلاق نافذة الألوان">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="theme-options" role="group" aria-labelledby="theme-title">
+                <button class="theme-option active" data-theme="blue" aria-label="اختر اللون الأزرق">
+                    <div class="theme-color blue"></div>
+                    <span>أزرق</span>
+                </button>
+                <button class="theme-option" data-theme="green" aria-label="اختر اللون الأخضر">
+                    <div class="theme-color green"></div>
+                    <span>أخضر</span>
+                </button>
+                <button class="theme-option" data-theme="purple" aria-label="اختر اللون البنفسجي">
+                    <div class="theme-color purple"></div>
+                    <span>بنفسجي</span>
+                </button>
+                <button class="theme-option" data-theme="pink" aria-label="اختر اللون الوردي">
+                    <div class="theme-color pink"></div>
+                    <span>وردي</span>
+                </button>
+                <button class="theme-option" data-theme="orange" aria-label="اختر اللون البرتقالي">
+                    <div class="theme-color orange"></div>
+                    <span>برتقالي</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <!-- <div id="notificationContainer" class="notification-container" aria-live="polite"></div> -->
+
+    <script src="script.js"></script>
 </body>
 </html>
